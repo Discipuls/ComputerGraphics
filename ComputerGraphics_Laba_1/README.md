@@ -6,6 +6,16 @@ To study the color models: RGB, HSV, LAB, the transition from one model to anoth
 
 Create a web application that allows the user to select and then interactively change the color, while showing its components in three models simultaneously.
 
+# Application usage
+
+Visit  https://laba-1.vercel.app/
+
+# Application local development
+
+- Clone the repo
+- `npm install`
+- `npm start`
+
 ## They are being checked:
 
 - a web application hosted in the public domain;
@@ -18,12 +28,6 @@ Create a web application that allows the user to select and then interactively c
 - When any color component is changed, all other representations of that color in the other two color models are recalculated automatically.
 - In case of "incorrect colors" (for example, when switching from XYZ to RGB, your calculation turned out to go beyond the boundaries of the calculated parameter change), issue an unobtrusive warning that cropping-rounding occurs, etc.
 
-## Points
-
-- Correctness of the transfer from one model to another: **40 points**.
-- Friendly and user-friendly interface: **30 points**.
-- The ability to set the color in each of the three models in three ways: **20 points**.
-- Automatic recalculation of the color in all models when changing any of the coordinates: **20 points**.
 
 ## Dependencies:
 - "@types/react": "^18.3.5",
