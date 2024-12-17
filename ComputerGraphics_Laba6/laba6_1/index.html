@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Visualization of Letter "Г"</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        canvas {
+            border: 1px solid #ccc;
+            background: white;
+            margin-top: 10px;
+        }
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .matrix {
+            margin-top: 20px;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+        .projections {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .projection {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>3D Visualization of Letter "Г"</h1>
+    <canvas id="canvas" width="600" height="600"></canvas>
+
+    <div class="controls">
+        <label>
+            Rotate X: <input type="range" id="rotateX" min="-180" max="180" value="0">
+        </label>
+        <label>
+            Rotate Y: <input type="range" id="rotateY" min="-180" max="180" value="0">
+        </label>
+        <label>
+            Rotate Z: <input type="range" id="rotateZ" min="-180" max="180" value="0">
+        </label>
+        <label>
+            Scale: <input type="range" id="scale" min="1" max="5" step="0.1" value="1">
+        </label>
+        <label>
+            Translate X: <input type="range" id="translateX" min="-5" max="5" step="0.1" value="0">
+        </label>
+        <label>
+            Translate Y: <input type="range" id="translateY" min="-5" max="5" step="0.1" value="0">
+        </label>
+        <label>
+            Translate Z: <input type="range" id="translateZ" min="-5" max="5" step="0.1" value="0">
+        </label>
+        <label>
+            Camera Rotate X: <input type="range" id="cameraRotateX" min="-180" max="180" value="0">
+        </label>
+        <label>
+            Camera Rotate Y: <input type="range" id="cameraRotateY" min="-180" max="180" value="0">
+        </label>
+        <label>
+            Camera Rotate Z: <input type="range" id="cameraRotateZ" min="-180" max="180" value="0">
+        </label>
+    </div>
+
+    <div class="matrix">
+        <strong>Transformation Matrix:</strong>
+        <pre id="matrixOutput"></pre>
+    </div>
+
+    <div class="projections">
+        <div class="projection">
+            <h2>Front View</h2>
+            <canvas id="frontCanvas" width="200" height="200"></canvas>
+        </div>
+        <div class="projection">
+            <h2>Top View</h2>
+            <canvas id="topCanvas" width="200" height="200"></canvas>
+        </div>
+        <div class="projection">
+            <h2>Side View</h2>
+            <canvas id="sideCanvas" width="200" height="200"></canvas>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        const frontCanvas = document.getElementById('frontCanvas');
+        const frontCtx = frontCanvas.getContext('2d');
+
+        const topCanvas = document.getElementById('topCanvas');
+        const topCtx = topCanvas.getContext('2d');
+
+        const sideCanvas = document.getElementById('sideCanvas');
+        const sideCtx = sideCanvas.getContext('2d');
+
+        const rotateXInput = document.getElementById('rotateX');
+        const rotateYInput = document.getElementById('rotateY');
+        const rotateZInput = document.getElementById('rotateZ');
+        const scaleInput = document.getElementById('scale');
+        const translateXInput = document.getElementById('translateX');
+        const translateYInput = document.getElementById('translateY');
+        const translateZInput = document.getElementById('translateZ');
+        const cameraRotateXInput = document.getElementById('cameraRotateX');
+        const cameraRotateYInput = document.getElementById('cameraRotateY');
+        const cameraRotateZInput = document.getElementById('cameraRotateZ');
+        const matrixOutput = document.getElementById('matrixOutput');
+
+        const vertices = [
+    // Г-образная форма
+    [-1, 1, 1], [1, 1, 1], [1, 0, 1], [-1, 0, 1], // Front face
+    [-1, 1, -1], [1, 1, -1], [1, 0, -1], [-1, 0, -1], // Back face
+    [-1, 0, -1], [0, 0, -1], [0, -2, -1], [-1, -2, -1], // Lower bar (back)
+    [-1, 0, 1], [0, 0, 1], [0, -2, 1], [-1, -2, 1] // Lower bar (front)
+];
+
+const edges = [
+    [0, 1], [1, 2], [2, 3], [3, 0], // Front face edges
+    [4, 5], [5, 6], [6, 7], [7, 4], // Back face edges
+    [0, 4], [1, 5], [2, 6], [3, 7], // Connecting edges between front and back faces
+    [8, 9], [9, 10], [10, 11], [11, 8], // Lower bar (back)
+    [12, 13], [13, 14], [14, 15], [15, 12], // Lower bar (front)
+    [8, 12], [9, 13], [10, 14], [11, 15] // Connecting front and back lower bars
+];
+
+
+
+        function multiplyMatrixAndPoint(matrix, point) {
+            const [x, y, z] = point;
+            const [m1, m2, m3, m4] = matrix;
+            return [
+                m1[0] * x + m1[1] * y + m1[2] * z + m1[3],
+                m2[0] * x + m2[1] * y + m2[2] * z + m2[3],
+                m3[0] * x + m3[1] * y + m3[2] * z + m3[3]
+            ];
+        }
+
+        function createRotationMatrixX(angle) {
+            const rad = (angle * Math.PI) / 180;
+            return [
+                [1, 0, 0, 0],
+                [0, Math.cos(rad), -Math.sin(rad), 0],
+                [0, Math.sin(rad), Math.cos(rad), 0],
+                [0, 0, 0, 1]
+            ];
+        }
+
+        function createRotationMatrixY(angle) {
+            const rad = (angle * Math.PI) / 180;
+            return [
+                [Math.cos(rad), 0, Math.sin(rad), 0],
+                [0, 1, 0, 0],
+                [-Math.sin(rad), 0, Math.cos(rad), 0],
+                [0, 0, 0, 1]
+            ];
+        }
+
+        function createRotationMatrixZ(angle) {
+            const rad = (angle * Math.PI) / 180;
+            return [
+                [Math.cos(rad), -Math.sin(rad), 0, 0],
+                [Math.sin(rad), Math.cos(rad), 0, 0],
+                [0, 0, 1, 0],
+                [0, 0, 0, 1]
+            ];
+        }
+
+        function createScaleMatrix(scale) {
+            return [
+                [scale, 0, 0, 0],
+                [0, scale, 0, 0],
+                [0, 0, scale, 0],
+                [0, 0, 0, 1]
+            ];
+        }
+
+        function createTranslationMatrix(tx, ty, tz) {
+            return [
+                [1, 0, 0, tx],
+                [0, 1, 0, ty],
+                [0, 0, 1, tz],
+                [0, 0, 0, 1]
+            ];
+        }
+
+        function applyTransformation(vertices, transformationMatrix) {
+            return vertices.map(vertex => multiplyMatrixAndPoint(transformationMatrix, vertex));
+        }
+
+        function drawAxes(ctx, cameraMatrix) {
+            ctx.beginPath();
+            ctx.strokeStyle = 'black';
+
+            // X-axis
+            ctx.moveTo(project(multiplyMatrixAndPoint(cameraMatrix, [-5, 0, 0]))[0], project(multiplyMatrixAndPoint(cameraMatrix, [-5, 0, 0]))[1]);
+            ctx.lineTo(project(multiplyMatrixAndPoint(cameraMatrix, [5, 0, 0]))[0], project(multiplyMatrixAndPoint(cameraMatrix, [5, 0, 0]))[1]);
+            ctx.fillText("X", project(multiplyMatrixAndPoint(cameraMatrix, [5, 0, 0]))[0] + 10, project(multiplyMatrixAndPoint(cameraMatrix, [5, 0, 0]))[1]);
+
+            // Y-axis
+            ctx.moveTo(project(multiplyMatrixAndPoint(cameraMatrix, [0, -5, 0]))[0], project(multiplyMatrixAndPoint(cameraMatrix, [0, -5, 0]))[1]);
+            ctx.lineTo(project(multiplyMatrixAndPoint(cameraMatrix, [0, 5, 0]))[0], project(multiplyMatrixAndPoint(cameraMatrix, [0, 5, 0]))[1]);
+            ctx.fillText("Y", project(multiplyMatrixAndPoint(cameraMatrix, [0, 5, 0]))[0] + 10, project(multiplyMatrixAndPoint(cameraMatrix, [0, 5, 0]))[1]);
+
+            // Z-axis
+            ctx.moveTo(project(multiplyMatrixAndPoint(cameraMatrix, [0, 0, -5]))[0], project(multiplyMatrixAndPoint(cameraMatrix, [0, 0, -5]))[1]);
+            ctx.lineTo(project(multiplyMatrixAndPoint(cameraMatrix, [0, 0, 5]))[0], project(multiplyMatrixAndPoint(cameraMatrix, [0, 0, 5]))[1]);
+            ctx.fillText("Z", project(multiplyMatrixAndPoint(cameraMatrix, [0, 0, 5]))[0] + 10, project(multiplyMatrixAndPoint(cameraMatrix, [0, 0, 5]))[1]);
+
+            ctx.stroke();
+        }
+
+        function draw(ctx, vertices, edges, cameraMatrix, projectionFunc) {
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            drawAxes(ctx, cameraMatrix);
+
+            ctx.beginPath();
+            ctx.strokeStyle = 'blue';
+
+            edges.forEach(([start, end]) => {
+                const [x1, y1] = projectionFunc(vertices[start]);
+                const [x2, y2] = projectionFunc(vertices[end]);
+
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(x2, y2);
+            });
+
+            ctx.stroke();
+        }
+
+        function project([x, y, z]) {
+            const scale = 300 / (z + 5); // Simple perspective projection
+            return [x * scale + canvas.width / 2, -y * scale + canvas.height / 2];
+        }
+
+        function orthoProjectFront([x, y, z]) {
+            return [x * 50 + 100, -y * 50 + 100];
+        }
+
+        function orthoProjectTop([x, y, z]) {
+            return [x * 50 + 100, -z * 50 + 100];
+        }
+
+        function orthoProjectSide([x, y, z]) {
+            return [z * 50 + 100, -y * 50 + 100];
+        }
+
+        function update() {
+            const rotateX = createRotationMatrixX(rotateXInput.value);
+            const rotateY = createRotationMatrixY(rotateYInput.value);
+            const rotateZ = createRotationMatrixZ(rotateZInput.value);
+            const scale = createScaleMatrix(scaleInput.value);
+            const translate = createTranslationMatrix(translateXInput.value, translateYInput.value, translateZInput.value);
+
+            const cameraRotateX = createRotationMatrixX(cameraRotateXInput.value);
+            const cameraRotateY = createRotationMatrixY(cameraRotateYInput.value);
+            const cameraRotateZ = createRotationMatrixZ(cameraRotateZInput.value);
+
+            let transformationMatrix = scale;
+            transformationMatrix = multiplyMatrices(transformationMatrix, rotateX);
+            transformationMatrix = multiplyMatrices(transformationMatrix, rotateY);
+            transformationMatrix = multiplyMatrices(transformationMatrix, rotateZ);
+            transformationMatrix = multiplyMatrices(transformationMatrix, translate);
+
+            let cameraMatrix = multiplyMatrices(cameraRotateX, cameraRotateY);
+            cameraMatrix = multiplyMatrices(cameraMatrix, cameraRotateZ);
+
+            const transformedVertices = applyTransformation(vertices, transformationMatrix);
+            const cameraTransformedVertices = applyTransformation(transformedVertices, cameraMatrix);
+
+            draw(ctx, cameraTransformedVertices, edges, cameraMatrix, project);
+
+            // Front view
+            draw(frontCtx, transformedVertices, edges, createIdentityMatrix(), orthoProjectFront);
+
+            // Top view
+            draw(topCtx, transformedVertices, edges, createIdentityMatrix(), orthoProjectTop);
+
+            // Side view
+            draw(sideCtx, transformedVertices, edges, createIdentityMatrix(), orthoProjectSide);
+
+            matrixOutput.textContent = JSON.stringify(transformationMatrix, null, 2);
+        }
+
+        function multiplyMatrices(a, b) {
+            const result = Array(4).fill(null).map(() => Array(4).fill(0));
+
+            for (let i = 0; i < 4; i++) {
+                for (let j = 0; j < 4; j++) {
+                    for (let k = 0; k < 4; k++) {
+                        result[i][j] += a[i][k] * b[k][j];
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        function createIdentityMatrix() {
+            return [
+                [1, 0, 0, 0],
+                [0, 1, 0, 0],
+                [0, 0, 1, 0],
+                [0, 0, 0, 1]
+            ];
+        }
+
+        rotateXInput.addEventListener('input', update);
+        rotateYInput.addEventListener('input', update);
+        rotateZInput.addEventListener('input', update);
+        scaleInput.addEventListener('input', update);
+        translateXInput.addEventListener('input', update);
+        translateYInput.addEventListener('input', update);
+        translateZInput.addEventListener('input', update);
+        cameraRotateXInput.addEventListener('input', update);
+        cameraRotateYInput.addEventListener('input', update);
+        cameraRotateZInput.addEventListener('input', update);
+
+        update();
+    </script>
+</body>
+</html>

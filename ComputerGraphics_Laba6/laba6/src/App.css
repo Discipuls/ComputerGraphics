@@ -1,0 +1,15 @@
+.app {
+  font-family: Arial, sans-serif;
+}
+
+.tabs {
+  margin: 20px;
+}
+
+.tabs button {
+  margin-right: 10px;
+}
+
+h2 {
+  color: #333;
+}

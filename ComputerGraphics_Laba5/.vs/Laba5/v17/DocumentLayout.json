@@ -1,0 +1,187 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|c:\\main\\programming\\pcg\\computergraphics_laba5\\laba5\\polygonclipwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|solutionrelative:polygonclipwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|c:\\main\\programming\\pcg\\computergraphics_laba5\\laba5\\sutherlandcohenwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|solutionrelative:sutherlandcohenwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|c:\\main\\programming\\pcg\\computergraphics_laba5\\laba5\\polygonclipper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|solutionrelative:polygonclipper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|c:\\main\\programming\\pcg\\computergraphics_laba5\\laba5\\clipper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|solutionrelative:clipper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|c:\\main\\programming\\pcg\\computergraphics_laba5\\laba5\\segment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|solutionrelative:segment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|c:\\main\\programming\\pcg\\computergraphics_laba5\\laba5\\linesegment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|solutionrelative:linesegment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|c:\\main\\programming\\pcg\\computergraphics_laba5\\laba5\\polygonclipwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|solutionrelative:polygonclipwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|c:\\main\\programming\\pcg\\computergraphics_laba5\\laba5\\sutherlandcohenwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|solutionrelative:sutherlandcohenwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|c:\\main\\programming\\pcg\\computergraphics_laba5\\laba5\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|c:\\main\\programming\\pcg\\computergraphics_laba5\\laba5\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{AE50C9CF-7259-4A73-929B-1CC48453D932}|Laba5.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PolygonClipWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\PolygonClipWindow.xaml.cs",
+              "RelativeDocumentMoniker": "PolygonClipWindow.xaml.cs",
+              "ToolTip": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\PolygonClipWindow.xaml.cs",
+              "RelativeToolTip": "PolygonClipWindow.xaml.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAAmwDsAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T11:00:31.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PolygonClipWindow.xaml",
+              "DocumentMoniker": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\PolygonClipWindow.xaml",
+              "RelativeDocumentMoniker": "PolygonClipWindow.xaml",
+              "ToolTip": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\PolygonClipWindow.xaml",
+              "RelativeToolTip": "PolygonClipWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-05T11:00:20.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SutherlandCohenWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\SutherlandCohenWindow.xaml.cs",
+              "RelativeDocumentMoniker": "SutherlandCohenWindow.xaml.cs",
+              "ToolTip": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\SutherlandCohenWindow.xaml.cs",
+              "RelativeToolTip": "SutherlandCohenWindow.xaml.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAAADIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T10:46:51.855Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LineSegment.cs",
+              "DocumentMoniker": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\LineSegment.cs",
+              "RelativeDocumentMoniker": "LineSegment.cs",
+              "ToolTip": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\LineSegment.cs",
+              "RelativeToolTip": "LineSegment.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T10:48:25.341Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Segment.cs",
+              "DocumentMoniker": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\Segment.cs",
+              "RelativeDocumentMoniker": "Segment.cs",
+              "ToolTip": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\Segment.cs",
+              "RelativeToolTip": "Segment.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T11:00:49.409Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Clipper.cs",
+              "DocumentMoniker": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\Clipper.cs",
+              "RelativeDocumentMoniker": "Clipper.cs",
+              "ToolTip": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\Clipper.cs",
+              "RelativeToolTip": "Clipper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T11:01:15.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PolygonClipper.cs",
+              "DocumentMoniker": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\PolygonClipper.cs",
+              "RelativeDocumentMoniker": "PolygonClipper.cs",
+              "ToolTip": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\PolygonClipper.cs",
+              "RelativeToolTip": "PolygonClipper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T11:01:28.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SutherlandCohenWindow.xaml",
+              "DocumentMoniker": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\SutherlandCohenWindow.xaml",
+              "RelativeDocumentMoniker": "SutherlandCohenWindow.xaml",
+              "ToolTip": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\SutherlandCohenWindow.xaml",
+              "RelativeToolTip": "SutherlandCohenWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-05T10:46:50.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-05T10:45:40.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Main\\Programming\\PCG\\ComputerGraphics_Laba5\\Laba5\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T10:45:36.794Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
